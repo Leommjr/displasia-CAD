@@ -19,21 +19,36 @@ class ExplicacaoComplementar extends StatelessWidget {
       body: ListView.builder(
         itemCount: amostra!.explicacoesComplementares.length,
         itemBuilder: (BuildContext context, int index) {
-          return Row(
-            children: [
-              Expanded(
-                child: ListTile(
-                  title: Text(
-                    amostra!.explicacoesComplementares[index].nome,
-                    style: Theme.of(context).textTheme.headline2,
+          return Container(
+            height: 500,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  ListTile(
+                    title: Text(
+                      amostra!.explicacoesComplementares[index].nome,
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
+                    subtitle: Text(
+                      amostra!.explicacoesComplementares[index].descricao,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                   ),
-                  subtitle: Text(
-                    amostra!.explicacoesComplementares[index].descricao,
-                    style: Theme.of(context).textTheme.bodyText1,
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: InteractiveViewer(
+                      boundaryMargin: const EdgeInsets.all(10.0),
+                      minScale: 0.1,
+                      maxScale: 5,
+                      child: Image.network(
+                        amostra!.explicacoesComplementares[index].URL,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           );
         },
       ),

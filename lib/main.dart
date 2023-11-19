@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/amostra_view.dart';
+import 'screens/image_upload_screen.dart';
 import 'style.dart';
 
 void main() {
@@ -69,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Widget page;
     switch (selectedIndex) {
       case 0:
-        page = const Placeholder();
+        page = ImageUploadScreen();
         break;
       case 1:
         page = Amostra(colorScheme.surfaceVariant);
